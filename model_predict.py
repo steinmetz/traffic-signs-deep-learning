@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 #import serial
 #import pyfirmata
 
+import sys
+
 #board = pyfirmata.Arduino('/dev/tty...') # oder usbserial.---
 
 
@@ -57,7 +59,7 @@ for x in range(1, 10):
     board.write(pred)
 """
     
-prediction = model.predict([prepare('vorfahrt1neu.jpg')])
+prediction = model.predict([prepare(str(sys.argv[0]))])
 #print(prediction)  # will be a list in a list.
 result = CATEGORIES[int(prediction[0][0])]
 #print(result)
